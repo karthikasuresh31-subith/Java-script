@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic profile page</title>
+</head>
+<body>
+    <h2>User access verification</h2>
+    <button onclick="checkAccess()">Check Access</button>
+    <p id="result"></p>
+    <script>
+        function checkAccess(){
+
+            let user = {
+                name: "Jack",
+                age: 23,
+                isAdmin: true
+            };
+
+            if ("age" in user)  {
+                let access = (user.age >= 18 && user.isAdmin) ? "Access Granted" : "Access Denied";
+
+                document.getElementById("result").textcontent=access;
+                delete user.age;
+
+                console.log("After deletion:",user);
+            } 
+            else{
+
+                document.getElementById("result").textcontent= "Age property not found!";
+            }
+        }
+    </script>
+    
+</body>
+</html>

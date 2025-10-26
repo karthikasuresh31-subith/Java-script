@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item return check</title>
+</head>
+<body>
+    <h2>Check Item Return Eligibility</h2>
+    <button onclick="checkReturn()">Check Return</button>
+    <p id="result"></p>
+
+    <script>
+        function checkReturn()  {
+            let order = {
+                itemname: "Wireless Earbuds",
+                isDelivered: true,
+                daysSinceDelivery: 5
+            };
+
+            if ("itemname" in order)  {
+
+                let message = (order.isdelivered && order.daysSinceDelivery <= 7) ? "Eligible for Return":
+                "Return Period Expired";
+
+                document.getElementById("result").textContent = message;
+
+                delete order.daysSinceDelivery;
+
+                console.log("After deletion:",order);
+            } 
+            else{
+                document.getElementById("result").textcontent = "Item name not found!";
+            }
+        }
+    </script>
+    
+</body>
+</html>
