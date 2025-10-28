@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <h2>Event reminder</h2>
+</head>
+<body>
+    <script>
+            function calculateDate() {
+      const input = document.getElementById('pastDate').value;
+      const resultDiv = document.getElementById('result');
+
+      if (!input) {
+        resultDiv.innerHTML = "<p>Please select a date first.</p>";
+        return;
+      }
+
+      const pastDate = new Date(input);
+      const today = new Date();
+
+      // Extract readable date
+      const year = pastDate.getFullYear();
+      const monthName = pastDate.toLocaleString('default', { month: 'long' });
+      const day = pastDate.getDate();
+
+      // Calculate difference in years
+      let yearsPassed = today.getFullYear() - pastDate.getFullYear();
+      const hasHadAnniversaryThisYear = 
+        today.getMonth() > pastDate.getMonth() || 
+        (today.getMonth() === pastDate.getMonth() && today.getDate() >= pastDate.getDate());
+      if (!hasHadAnniversaryThisYear) {
+        yearsPassed--;
+      }
+
+      // Determine custom message
+      const timeDiff = today - pastDate;
+      const daysPassed = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+      const message = daysPassed >= 365 
+        ? "It has been more than a year since that date."
+        : "It has been less than a year since that date.";
+
+      resultDiv.innerHTML = `
+        <hr>
+        <p><strong>Date:</strong> ${day} ${monthName} ${year}</p>
+        <p><strong>Full years passed:</strong> ${yearsPassed}</p>
+        <p><strong>Message:</strong> ${message}</p>
+      `;
+    }
+
+    </script>
+    
+</body>
+</html>
