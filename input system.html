@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input system</title>
+    <h2>Simple Input System</h2>
+</head>
+<body>
+    <script>
+        let correctnumber = 3;
+        let chances = 5;
+
+        for (i = 1;i <=chances; i++)  {
+            let input = prompt("Enter a number between 1 and 5");
+            let guess = Number(input);
+
+            if (guess < 1 || guess > 5 || isNaN(guess))
+        {
+            alert("invalid input");
+            continue;
+        }
+        let word;
+        switch(guess)  {
+           case 1: word = "one";break;
+           case 2: word = "two";break;
+           case 3: word = "three";break;
+           case 4: word = "four";break;
+           case 5: word = "five";break;
+        }
+        alert("you enterd" + word + ".");
+
+        if (guess === correctnumber)  {
+            alert("you guedded it right!");
+            break;
+          }  else  {
+              alert("wrong guess.Try again.");
+          }
+
+          if (i === chances)  {
+            alert("Game over");
+          }
+        }
+        
+    </script>
+    
+</body>
+</html>

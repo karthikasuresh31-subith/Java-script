@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <h2>Calculator for a grocery store</h2>
+</head>
+<body>
+    <script>
+        for (let i = 1; i <= 5; i++)  {
+            let code = parseInt(prompt("Enter product code (1 for Apple, 2 for banana, 3 for mango):"));
+            let quantity = parseInt(prompt("Enter quantity"));
+            let priceperitem, productname;
+
+            switch(code)  {
+                case 1:
+                    productname = "Apple";
+                    priceperitem = 30;
+                    break;
+                case 2:
+                    productname = "Banana";
+                    priceperitem = 10;
+                    break;
+                case 3:
+                    productname = "Mango";
+                    priceperitem = 50;
+                    break;
+                    alert("Invalid product code! skipping this purchase...");
+                    continue;
+            }
+            let total = priceperitem * quantity;
+
+            alert('product:${product name}\nquantity: ${quantity}\ntotal: ${total}');
+
+            if (total > 100)  {
+                alert("High purchase");
+            }else {
+                alert("Normal purchase");
+            }
+        }
+        alert("5 purchase completed!");
+    </script>
+    
+</body>
+</html>
