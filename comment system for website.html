@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>comment system for a website</title>
+    <h2>Comment system for a website</h2>
+</head>
+<body>
+    <script>
+        function checkAndreplacenumbers(comment)  {
+            const hasnumber = /\d/.test(comment);
+            const updatedComment = comment.replace(/\d+/g, "NUMBER");
+
+            return `
+            Number Found: ${hasnumber}
+            Updated Comment: ${updatedComment} 
+            `;
+        } 
+
+        const testcomment = "My son is 12 years old.Our flat number is 45 and contact is 9876543210.";
+        console.log(checkAndreplacenumbers(testcomment));
+    </script>
+    
+</body>
+</html>

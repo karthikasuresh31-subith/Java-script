@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>comment filtering system for a blog site</title>
+    <h2>Comment filtering system</h2>
+</head>
+<body>
+    <script>
+        function filtercomment(comment)  {
+            const bannedwords = ["bad" , "ugly" , "stupid"];
+            const regex = new  RegExp(`\\b(${bannedwords.join("|")})\\b` , "gi");
+
+            const cleanedcomment = comment.replace(regex, "****");
+
+            const numbercount = (comment.match(/\d+/g) || []).length;
+
+            const capitalizedwordcount = (comment.match(/\b[A-Z][a-zA-Z]*\b/g) || []).length;
+
+            return `
+            cleaned comment: ${cleanedcomment}
+            number count: ${numbercount}
+            capitalized word count: $
+            {capitalizedwordcount}
+            `;
+                
+        }
+
+        const testcomment = "I think this is movie was bad and 100% stupid! But the acting was amazing and 3 actors were great.";
+        console.log(filtercomment(testcomment));
+    </script>
+    
+</body>
+</html>
