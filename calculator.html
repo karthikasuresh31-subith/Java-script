@@ -15,15 +15,15 @@
 
             switch(code)  {
                 case 1:
-                    productname = "Apple";
+                    productName = "Apple";
                     priceperitem = 30;
                     break;
                 case 2:
-                    productname = "Banana";
+                    productName = "Banana";
                     priceperitem = 10;
                     break;
                 case 3:
-                    productname = "Mango";
+                    productName = "Mango";
                     priceperitem = 50;
                     break;
                     alert("Invalid product code! skipping this purchase...");
@@ -31,7 +31,7 @@
             }
             let total = priceperitem * quantity;
 
-            alert('product:${product name}\nquantity: ${quantity}\ntotal: ${total}');
+            alert(`product: ${productName}\nQuantity: ${quantity}\nTotal: ${total}`);
 
             if (total > 100)  {
                 alert("High purchase");

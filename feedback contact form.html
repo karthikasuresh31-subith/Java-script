@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Form</title>
+</head>
+<body>
+    <script>
+        let jsonFeedback = '{"feedback": "Thank you for your quick response!"}';
+
+
+const checkFeedback = (feedbackObj) => {
+  try {
+    
+    const parsedData = JSON.parse(feedbackObj);
+
+    const feedbackText = parsedData.feedback;
+
+
+    if (feedbackText.toLowerCase().includes("thank")) {
+      console.log("Positive feedback received");
+    } else {
+      console.log("Feedback noted");
+    }
+  } catch (error) {
+    
+    console.log("Invalid JSON input");
+  }
+};
+
+
+checkFeedback(jsonFeedback);
+
+
+    </script>
+    
+</body>
+</html>
