@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>information about books</title>
+</head>
+<body>
+    <script>
+        class Book {
+  constructor(title, author, price) {
+    this.title = title;
+    this.author = author;
+    this.price = price;
+  }
+
+  getTitle() {
+    return this.title;
+  }
+
+  getAuthor() {
+    return this.author;
+  }
+
+  setPrice(newPrice) {
+    if (typeof newPrice === 'number' && newPrice > 0) {
+      this.price = newPrice;
+      console.log('Price updated successfully!');
+    } else {
+      console.log('Invalid price. Update failed.');
+    }
+  }
+
+  displayBook() {
+    console.log(`Title: ${this.title}`);
+    console.log(`Author: ${this.author}`);
+    console.log(`Price: ₹${this.price}`);
+  }
+}
+
+const book1 = new Book('The Silent Spring', 'Rachel Carson', 499);
+
+book1.setPrice(-150);   
+book1.setPrice('300');  
+
+book1.setPrice(550);
+
+console.log('\nFinal Book Details:');
+book1.displayBook();
+
+</script>
+    
+</body>
+</html>
