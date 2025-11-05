@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple web page</title>
+    <h2>Web page with a text box</h2>
+        <style>
+        body {
+            font-family: sans-serif;
+            margin: 40px;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            padding: 8px;
+            width: 250px;
+            border-radius: 5px;
+            border: 1px;
+        }
+        button {
+            padding: 8px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        p {
+            color: blue;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        p:hover {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <form id="textForm">
+    <input type="text" id="userText" placeholder="Enter text here" required>
+    <button type="submit">Submit</button>
+  </form>
+
+  <p id="displayText"></p>
+
+  <script>
+    const form = document.getElementById('textForm');
+    const input = document.getElementById('userText');
+    const paragraph = document.getElementById('displayText');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault(); // prevent page reload
+      paragraph.textContent = input.value; // display text in paragraph
+      input.value = ''; // clear input box
+    });
+  </script>
+
+
+    
+</body>
+</html>
